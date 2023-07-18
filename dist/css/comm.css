@@ -298,15 +298,38 @@ legend {
   height: 300px;
 }
 
-.wrap {
-  width: 1200px;
-  margin: 0 auto;
+.container {
+  padding: 0 4%;
 }
-.wrap header {
-  height: 100px;
-  background: red;
+
+#header {
+  border-bottom: 1px solid #000;
 }
-.wrap .slide {
-  height: 300px;
-  background: blue;
+#header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+#header .lst-util {
+  display: flex;
+}
+#header .lst-util > li {
+  padding: 0 10px;
+}
+#header .btn-g {
+  width: 40px;
+  height: 70px;
+}
+#header .btn-g::before {
+  font-size: 20px;
+  font-family: "Font Awesome 6 Free";
+}
+#header .btn-search::before {
+  content: "\f002";
+  font-weight: 900;
+}
+#header .btn-buger::before {
+  content: "\f007";
+  font-weight: 400;
 }/*# sourceMappingURL=comm.css.map */
