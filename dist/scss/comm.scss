@@ -1,47 +1,101 @@
 @charset "UTF-8";
-@import "fonts", "reset", "main", "contents";
+@import "variables","mixin","fonts", "reset", "main", "contents";
 
-// comm.scss(css) - 
+// comm.scss(css) -
 // 공통요소 : header, footer, button, icon, box
-
 
 // 공통
 .container {
   padding: 0 4%;
 }
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
 
 // header
 #header {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid $b;
   .inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 70px;
   }
+  .head__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .lst-util {
     display: flex;
+    li {
+      display: flex;
+    }
   }
-  .lst-util > li {
-    padding: 0 10px;
-  }
-  .btn-g {
+
+  .btn-g,
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 70px;
+    .material-icons-outlined {
+      font-size: 36px;
+    }
     &::before {
       font-size: 20px;
       font-family: "Font Awesome 6 Free";
     }
   }
-  .btn-search::before {
-    content: "\f002";
-    font-weight: 900;
+  // .btn-search::before {
+  //   content: "\f002";
+  //   font-weight: 900;
+  // }
+  // .btn-buger::before {
+  //   content: "\f007";
+  //   font-weight: 400;
+  // }
+  .gnb-wrap {
+    .input-burger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    .label-burger {
+      .bar {
+        display: block;
+        width: 26px;
+        height: 2px;
+        background: red;
+      }
+    }
+    #gnb {
+      display: none;
+    }
   }
-  .btn-buger::before {
-    content: "\f007";
-    font-weight: 400;
-  }
- 
 }
-
-
