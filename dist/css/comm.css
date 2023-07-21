@@ -336,13 +336,14 @@ legend {
 }
 
 #header {
+  position: relative;
+  z-index: 1000;
   border-bottom: 1px solid #000;
 }
 #header .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
 }
 #header .head__right {
   display: flex;
@@ -372,7 +373,12 @@ legend {
   font-size: 20px;
   font-family: "Font Awesome 6 Free";
 }
-#header .gnb-wrap .input-burger {
+#header #logo {
+  position: relative;
+  z-index: 1150;
+}
+
+.gnb-wrap .input-burger {
   position: absolute;
   top: 0;
   left: 0;
@@ -380,14 +386,55 @@ legend {
   height: 0;
   opacity: 0;
 }
-#header .gnb-wrap .label-burger .bar {
+.gnb-wrap .input-burger:checked + label .bar {
+  background: #000;
+}
+.gnb-wrap .input-burger:checked + label .bar:nth-child(2) {
+  transform: rotate(45deg) translate(10px, 6px);
+  transform-origin: 50% 50%;
+}
+.gnb-wrap .input-burger:checked + label .bar:nth-child(3) {
+  opacity: 0;
+}
+.gnb-wrap .input-burger:checked + label .bar:nth-child(4) {
+  transform: rotate(-45deg) translate(10px, -7px);
+  transform-origin: 50% 50%;
+}
+.gnb-wrap .input-burger:checked ~ #gnb {
+  right: 0;
+}
+.gnb-wrap .label-burger {
+  position: relative;
+  z-index: 1150;
+  display: flex;
+  width: 40px;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.gnb-wrap span:nth-child(3) {
+  margin: 10px 0;
+}
+.gnb-wrap #gnb {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  width: 100%;
+  background: wheat;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.3s;
+}
+.gnb-wrap .bar {
   display: block;
   width: 26px;
   height: 2px;
-  background: red;
-}
-#header .gnb-wrap #gnb {
-  display: none;
+  background: #000;
+  transition: all 0.3s;
 }
 
 .section-g {
@@ -415,8 +462,13 @@ legend {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 200px;
   border-radius: 4px;
+}
+.section-shopping .lst-shopping li .thumb-shopping::before {
+  content: "";
+  display: block;
+  height: 0;
+  padding-top: 100%;
 }
 .section-shopping .lst-shopping li .thumb-shopping::after {
   content: "";
@@ -430,6 +482,11 @@ legend {
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 .section-shopping .lst-shopping li img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
