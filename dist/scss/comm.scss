@@ -5,6 +5,9 @@
 // 공통요소 : header, footer, button, icon, box
 
 // 공통
+.wrap {
+  padding-top: 70px;
+}
 .container {
   padding: 0 $bothMargin;
 }
@@ -38,9 +41,14 @@
 
 // header
 #header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
+  // box-sizing: border-box;
   border-bottom: 1px solid $b;
+  background: rgba($w, 0);
   .inner {
     display: flex;
     align-items: center;
@@ -60,8 +68,7 @@
     }
   }
 
-  .btn-g,
-  a {
+  .btn-g {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +120,6 @@
           &:nth-child(4) {
             transform: rotate(-45deg) translate(10px, -7px);
             transform-origin: 50% 50%;
-
           }
         }
       }
@@ -132,6 +138,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    cursor: pointer;
   }
   span {
     &:nth-child(3) {
@@ -145,13 +152,12 @@
     right: -100%;
     bottom: 0;
     width: 100%;
-    background: wheat;  
+    background: wheat;
     padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: right 0.3s;
-
   }
   .bar {
     display: block;
@@ -161,6 +167,44 @@
     transition: all 0.3s;
   }
 }
+
+// slide
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  // position: relative;
+  text-align: center;
+  height: 100vh;
+  font-size: 18px;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // width: 100%;
+    // height: 100%;
+    // 위아래왼오른쪽 0 넣거나 w100%, h100% 집어넣으면 된다.
+    background: rgba($b, 0.5);
+  }
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
 // main
 .section-g {
   // margin: 50px 0;
@@ -171,7 +215,7 @@
   padding-top: 50px;
   padding-bottom: 50px;
   .sec-tit {
-    font-size: 20px;
+    font-size: 1.4286rem;
     color: $b;
   }
   .sec-contents {
@@ -179,7 +223,7 @@
   }
 }
 .section-shopping {
-  .lst-shopping {
+  .lst-thumb-two-column {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -252,6 +296,7 @@
 //   .c {
 //   }
 // }
+
 // footer
 #footer {
   .inner {
